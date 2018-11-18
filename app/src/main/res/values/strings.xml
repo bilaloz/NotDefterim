@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GYK Not Plus</string>
+    <string name="register">Kayıt Ol</string>
+    <string name="sing_in">Giriş Yap</string>
+</resources>
