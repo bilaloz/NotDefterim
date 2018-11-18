@@ -135,7 +135,7 @@ ADDED from C:\Users\Student\Desktop\Yeni\SimpleNotesApp\app\src\main\AndroidMani
 		ADDED from C:\Users\Student\Desktop\Yeni\SimpleNotesApp\app\src\main\AndroidManifest.xml:16:13-49
 	android:name
 		ADDED from C:\Users\Student\Desktop\Yeni\SimpleNotesApp\app\src\main\AndroidManifest.xml:15:13-41
-activity#example.androidgrid.simplenotesapp.StartActivity
+activity#example.androidgrid.simplenotesapp.GirisActivity
 ADDED from C:\Users\Student\Desktop\Yeni\SimpleNotesApp\app\src\main\AndroidManifest.xml:19:9-28:16
 	android:theme
 		ADDED from C:\Users\Student\Desktop\Yeni\SimpleNotesApp\app\src\main\AndroidManifest.xml:21:13-56

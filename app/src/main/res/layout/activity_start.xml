@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
-    tools:context="example.androidgrid.simplenotesapp.StartActivity">
+    tools:context="example.androidgrid.simplenotesapp.GirisActivity">
 
 
     <LinearLayout

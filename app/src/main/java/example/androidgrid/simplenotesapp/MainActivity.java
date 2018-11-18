@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth fAuth;
     private RecyclerView mNotesList;
     private GridLayoutManager gridLayoutManager;
-
     private DatabaseReference fNotesDatabase;
     private DatabaseReference databaseReference;
 
@@ -115,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         if (fAuth.getCurrentUser() != null) {
             Log.i("MainActivity", "fAuth != null");
         } else {
-            Intent startIntent = new Intent(MainActivity.this, StartActivity.class);
+            Intent startIntent = new Intent(MainActivity.this, GirisActivity.class);
             startActivity(startIntent);
             finish();
             Log.i("MainActivity", "fAuth == null");

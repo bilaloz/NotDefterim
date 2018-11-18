@@ -32,7 +32,7 @@ import java.util.Map;
 public class NewNoteActivity extends AppCompatActivity {
 
     private Button btnCreate;
-    private EditText etTitle, etContent,etEmailFriends;
+    private EditText etTitle, etContent, etEmailFriends;
     private LinearLayout linearFriends;
     private String friKey;
     private FirebaseAuth fAuth;
@@ -41,7 +41,7 @@ public class NewNoteActivity extends AppCompatActivity {
     private DatabaseReference notesDatabase;
     private Button btnFriendsAdd;
     private String noteID;
-
+    String arkadasMail;
     private boolean isExist;
 
     @Override
@@ -74,8 +74,8 @@ public class NewNoteActivity extends AppCompatActivity {
 
         linearFriends = findViewById(R.id.linearFriends);
         etEmailFriends = findViewById(R.id.etEmailFriends);
-        btnCreate =  findViewById(R.id.new_note_btn);
-        etTitle =  findViewById(R.id.new_note_title);
+        btnCreate = findViewById(R.id.new_note_btn);
+        etTitle = findViewById(R.id.new_note_title);
         etContent = findViewById(R.id.new_note_content);
         btnFriendsAdd = findViewById(R.id.btnFriendsAdd);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -105,29 +105,7 @@ public class NewNoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Map updateMap = new HashMap();
-                updateMap.put("email", etEmailFriends.getText().toString().trim());
-                firebaseDatabase.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        for (DataSnapshot data :dataSnapshot.getChildren()){
-                            for (DataSnapshot datas: data.getChildren()){
-                                String m = datas.child("mail").getValue().toString();
-                                if (m.equals(etEmailFriends.getText().toString())){
-                                    friKey = data.getKey();
-                                    Toast.makeText(NewNoteActivity.this, "Fri"+friKey, Toast.LENGTH_SHORT).show();
-                                }
-                            }
-
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
-                fNotesDatabase.child(noteID).updateChildren(updateMap);
+                arkadasDeneme(1);
 
             }
 
@@ -136,7 +114,41 @@ public class NewNoteActivity extends AppCompatActivity {
         putData();
     }
 
+    private void arkadasDeneme(int code) {
+        Map updateMap = new HashMap();
+        final boolean[] de = {false};
+        if (code == 1) {
+            updateMap.put("email", etEmailFriends.getText().toString().trim());
+        }
+
+        firebaseDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    for (DataSnapshot datas : data.getChildren()) {
+                        arkadasMail = datas.child("mail").getValue().toString();
+                        if (arkadasMail.equals(etEmailFriends.getText().toString())) {
+                            friKey = data.getKey();
+                            Toast.makeText(NewNoteActivity.this, "Kullanıcı Bulundu", Toast.LENGTH_SHORT).show();
+                            de[0] = true;
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        if (de[0]){
+
+            notesDatabase.child(friKey).updateChildren(updateMap);
+        }
+    }
+
     private void putData() {
+        arkadasDeneme(0);
 
         if (isExist) {
             fNotesDatabase.child(noteID).addValueEventListener(new ValueEventListener() {
@@ -156,10 +168,28 @@ public class NewNoteActivity extends AppCompatActivity {
                 }
             });
         }
+        if (friKey != null) {
+            notesDatabase = FirebaseDatabase.getInstance().getReference().child("Notes").child(friKey);
+            notesDatabase.child(friKey).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.hasChild("title") && dataSnapshot.hasChild("content")) {
+                        String title = dataSnapshot.child("title").getValue().toString();
+                        String content = dataSnapshot.child("content").getValue().toString();
+                        etTitle.setText(title);
+                        etContent.setText(content);
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
     }
 
     private void createNote(String title, String content) {
-
         if (fAuth.getCurrentUser() != null) {
 
             if (isExist) {
@@ -168,7 +198,7 @@ public class NewNoteActivity extends AppCompatActivity {
                 updateMap.put("title", etTitle.getText().toString().trim());
                 updateMap.put("content", etContent.getText().toString().trim());
                 updateMap.put("timestamp", ServerValue.TIMESTAMP);
-
+                updateMap.put("email", arkadasMail);
                 fNotesDatabase.child(noteID).updateChildren(updateMap);
 
                 Toast.makeText(this, "Not Güncellendi", Toast.LENGTH_SHORT).show();
@@ -179,6 +209,7 @@ public class NewNoteActivity extends AppCompatActivity {
                 final Map noteMap = new HashMap();
                 noteMap.put("title", title);
                 noteMap.put("content", content);
+                noteMap.put("email", arkadasMail);
                 noteMap.put("timestamp", ServerValue.TIMESTAMP);
 
                 Thread mainThread = new Thread(new Runnable() {
@@ -201,12 +232,11 @@ public class NewNoteActivity extends AppCompatActivity {
             }
 
 
-
         } else {
             Toast.makeText(this, "Kullanıcı Girişi Başarısız", Toast.LENGTH_SHORT).show();
         }
-
-        if (friKey !=null){
+        arkadasDeneme(0);
+        if (friKey != null) {
             if (fAuth.getCurrentUser() != null) {
 
                 if (isExist) {
@@ -214,6 +244,7 @@ public class NewNoteActivity extends AppCompatActivity {
                     Map updateMap = new HashMap();
                     updateMap.put("title", etTitle.getText().toString().trim());
                     updateMap.put("content", etContent.getText().toString().trim());
+                    updateMap.put("email", fAuth.getCurrentUser().getEmail().toString());
                     updateMap.put("timestamp", ServerValue.TIMESTAMP);
                     notesDatabase = FirebaseDatabase.getInstance().getReference().child("Notes").child(friKey);
                     notesDatabase.child(friKey).updateChildren(updateMap);
@@ -226,6 +257,7 @@ public class NewNoteActivity extends AppCompatActivity {
                     final Map noteMap = new HashMap();
                     noteMap.put("title", title);
                     noteMap.put("content", content);
+                    noteMap.put("email", fAuth.getCurrentUser().getEmail().toString());
                     noteMap.put("timestamp", ServerValue.TIMESTAMP);
 
                     Thread mainThread = new Thread(new Runnable() {
@@ -248,16 +280,12 @@ public class NewNoteActivity extends AppCompatActivity {
                 }
 
 
-
             } else {
                 Toast.makeText(this, "Kullanıcı Girişi Başarısız", Toast.LENGTH_SHORT).show();
             }
         }
 
     }
-
-
-
 
 
     @Override
@@ -272,7 +300,7 @@ public class NewNoteActivity extends AppCompatActivity {
                 if (isExist) {
                     deleteNote();
                 } else {
-                        Toast.makeText(this, "Silinecek Not Yok", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Silinecek Not Yok", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.account_creat:
@@ -292,15 +320,34 @@ public class NewNoteActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(NewNoteActivity.this, "Note Deleted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NewNoteActivity.this, "Not Silindi", Toast.LENGTH_SHORT).show();
                     noteID = "no";
                     finish();
                 } else {
                     Log.e("NewNoteActivity", task.getException().toString());
-                    Toast.makeText(NewNoteActivity.this, "ERROR: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NewNoteActivity.this, "Hata: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+
+        if (friKey != null) {
+            notesDatabase = FirebaseDatabase.getInstance().getReference().child("Notes").child(friKey);
+            notesDatabase.child(friKey).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(NewNoteActivity.this, "Not Silindi", Toast.LENGTH_SHORT).show();
+                        friKey = null;
+                        finish();
+                    } else {
+                        Log.e("NewNoteActivity", task.getException().toString());
+                        Toast.makeText(NewNoteActivity.this, "Hata: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+
 
     }
 

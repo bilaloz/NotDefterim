@@ -33,7 +33,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="example.androidgrid.simplenotesapp.StartActivity"
+            android:name="example.androidgrid.simplenotesapp.GirisActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

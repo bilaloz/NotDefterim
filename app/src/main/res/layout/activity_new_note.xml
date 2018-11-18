@@ -28,7 +28,7 @@
                 android:layout_weight="1"
                 android:id="@+id/btnFriendsAdd"
                 android:background="@drawable/create_btn"
-                android:text="Noter Ekle"
+                android:text="Kullanıcı Ara"
                 android:textColor="@android:color/white"
                 android:layout_height="wrap_content" />
         </LinearLayout>
