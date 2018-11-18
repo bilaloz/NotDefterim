@@ -74,9 +74,9 @@ public class NewNoteActivity extends AppCompatActivity {
 
         linearFriends = findViewById(R.id.linearFriends);
         etEmailFriends = findViewById(R.id.etEmailFriends);
-        btnCreate = (Button) findViewById(R.id.new_note_btn);
-        etTitle = (EditText) findViewById(R.id.new_note_title);
-        etContent = (EditText) findViewById(R.id.new_note_content);
+        btnCreate =  findViewById(R.id.new_note_btn);
+        etTitle =  findViewById(R.id.new_note_title);
+        etContent = findViewById(R.id.new_note_content);
         btnFriendsAdd = findViewById(R.id.btnFriendsAdd);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -97,7 +97,7 @@ public class NewNoteActivity extends AppCompatActivity {
                 if (!TextUtils.isEmpty(title) && !TextUtils.isEmpty(content)) {
                     createNote(title, content);
                 } else {
-                    Snackbar.make(view, "Fill empty fields", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(view, "Boş Alanları Doldurunuz", Snackbar.LENGTH_SHORT).show();
                 }
             }
         });
@@ -203,7 +203,7 @@ public class NewNoteActivity extends AppCompatActivity {
 
 
         } else {
-            Toast.makeText(this, "USERS IS NOT SIGNED IN", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Kullanıcı Girişi Başarısız", Toast.LENGTH_SHORT).show();
         }
 
         if (friKey !=null){
@@ -250,7 +250,7 @@ public class NewNoteActivity extends AppCompatActivity {
 
 
             } else {
-                Toast.makeText(this, "USERS IS NOT SIGNED IN", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Kullanıcı Girişi Başarısız", Toast.LENGTH_SHORT).show();
             }
         }
 

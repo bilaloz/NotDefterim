@@ -841,21 +841,6 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\Student\\Desktop\\Yeni\\SimpleNotesApp\\app\\build\\intermediates\\res\\merged\\debug\\values-night-v8_values-night-v8.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\Student\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.0.aar\\304c3165b18c81517f3b09008289daee\\res\\values-night-v8\\values-night-v8.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "55,125,209,293,389,491,593",
-                        "endColumns": "69,83,83,95,101,101,93",
-                        "endOffsets": "120,204,288,384,486,588,682"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "C:\\Users\\Student\\Desktop\\Yeni\\SimpleNotesApp\\app\\build\\intermediates\\res\\merged\\debug\\values-nl_values-nl.arsc.flat",
             "map": [
                 {
@@ -912,6 +897,21 @@
             ]
         },
         {
+            "outputFile": "C:\\Users\\Student\\Desktop\\Yeni\\SimpleNotesApp\\app\\build\\intermediates\\res\\merged\\debug\\values-night-v8_values-night-v8.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\Student\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.0.aar\\304c3165b18c81517f3b09008289daee\\res\\values-night-v8\\values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593",
+                        "endColumns": "69,83,83,95,101,101,93",
+                        "endOffsets": "120,204,288,384,486,588,682"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "C:\\Users\\Student\\Desktop\\Yeni\\SimpleNotesApp\\app\\build\\intermediates\\res\\merged\\debug\\values-land_values-land.arsc.flat",
             "map": [
                 {
@@ -941,22 +941,6 @@
                         "startOffsets": "55,125,189,260",
                         "endColumns": "69,63,70,67",
                         "endOffsets": "120,184,255,323"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "C:\\Users\\Student\\Desktop\\Yeni\\SimpleNotesApp\\app\\build\\intermediates\\res\\merged\\debug\\values-v25_values-v25.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\Student\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.0.aar\\304c3165b18c81517f3b09008289daee\\res\\values-v25\\values-v25.xml",
-                    "from": {
-                        "startLines": "2,3,4,6",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,126,209,308",
-                        "endLines": "2,3,5,7",
-                        "endColumns": "70,82,12,12",
-                        "endOffsets": "121,204,303,414"
                     }
                 }
             ]
@@ -1013,6 +997,22 @@
                         "startOffsets": "105,224,332,455,573,688,781,886,1018,1095,1171,1253,1364,1470,1568,1682,1782,1893,2021,4837,4919",
                         "endColumns": "118,107,122,117,114,92,104,131,76,75,81,110,105,97,113,99,110,127,100,81,100",
                         "endOffsets": "219,327,450,568,683,776,881,1013,1090,1166,1248,1359,1465,1563,1677,1777,1888,2016,2117,4914,5015"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\Student\\Desktop\\Yeni\\SimpleNotesApp\\app\\build\\intermediates\\res\\merged\\debug\\values-v25_values-v25.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\Student\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.0.aar\\304c3165b18c81517f3b09008289daee\\res\\values-v25\\values-v25.xml",
+                    "from": {
+                        "startLines": "2,3,4,6",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,126,209,308",
+                        "endLines": "2,3,5,7",
+                        "endColumns": "70,82,12,12",
+                        "endOffsets": "121,204,303,414"
                     }
                 }
             ]
@@ -1130,22 +1130,6 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\Student\\Desktop\\Yeni\\SimpleNotesApp\\app\\build\\intermediates\\res\\merged\\debug\\values-v12_values-v12.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\Student\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.0.aar\\304c3165b18c81517f3b09008289daee\\res\\values-v12\\values-v12.xml",
-                    "from": {
-                        "startLines": "2,5,8,9",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,279,479,598",
-                        "endLines": "4,7,8,9",
-                        "endColumns": "12,12,118,94",
-                        "endOffsets": "274,474,593,688"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "C:\\Users\\Student\\Desktop\\Yeni\\SimpleNotesApp\\app\\build\\intermediates\\res\\merged\\debug\\values-pt-rPT_values-pt-rPT.arsc.flat",
             "map": [
                 {
@@ -1197,6 +1181,22 @@
                         "startOffsets": "2099,2206,2401,2531,2641,2868,2998,3340,3587,3697,3898,4031,4249,4457,4555,4654",
                         "endColumns": "106,194,129,109,226,129,137,246,109,200,132,217,207,97,98,115",
                         "endOffsets": "2201,2396,2526,2636,2863,2993,3131,3582,3692,3893,4026,4244,4452,4550,4649,4765"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\Student\\Desktop\\Yeni\\SimpleNotesApp\\app\\build\\intermediates\\res\\merged\\debug\\values-v12_values-v12.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\Student\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.0.aar\\304c3165b18c81517f3b09008289daee\\res\\values-v12\\values-v12.xml",
+                    "from": {
+                        "startLines": "2,5,8,9",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,279,479,598",
+                        "endLines": "4,7,8,9",
+                        "endColumns": "12,12,118,94",
+                        "endOffsets": "274,474,593,688"
                     }
                 }
             ]
@@ -1851,11 +1851,9 @@
                 {
                     "source": "C:\\Users\\Student\\Desktop\\Yeni\\SimpleNotesApp\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
-                        "startLines": "1,2,3",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "17,68,115",
-                        "endColumns": "49,45,45",
-                        "endOffsets": "62,109,156"
+                        "startLines": "-1,-1,-1",
+                        "startColumns": "-1,-1,-1",
+                        "startOffsets": "-1,-1,-1"
                     },
                     "to": {
                         "startLines": "804,838,840",
@@ -2008,9 +2006,11 @@
                 {
                     "source": "C:\\Users\\Student\\Desktop\\Yeni\\SimpleNotesApp\\app\\src\\main\\res\\values\\colors.xml",
                     "from": {
-                        "startLines": "-1,-1,-1",
-                        "startColumns": "-1,-1,-1",
-                        "startOffsets": "-1,-1,-1"
+                        "startLines": "4,-1,-1",
+                        "startColumns": "4,-1,-1",
+                        "startOffsets": "157,-1,-1",
+                        "endColumns": "45,-1,-1",
+                        "endOffsets": "198,-1,-1"
                     },
                     "to": {
                         "startLines": "122,123,124",
